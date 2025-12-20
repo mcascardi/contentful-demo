@@ -7,19 +7,19 @@ interface LikeButtonProps {
 }
 
 export default function LikeButton({ slug }: LikeButtonProps) {
-  const [likes, setLikes] = useState<number>(0);
-  const [hasLiked, setHasLiked] = useState<boolean>(false);
-  const [loading, setLoading] = useState(true);
+    const [likes, setLikes] = useState<number>(0);
+    const [hasLiked, setHasLiked] = useState<boolean>(false);
+    const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch current like count from Lambda
     const fetchLikes = async () => {
       setLoading(true);
       try {
-        // TODO: Replace with actual Lambda URL once created
-        // const response = await fetch(`${process.env.NEXT_PUBLIC_LAMBDA_URL}?slug=${slug}`);
-        // const data = await response.json();
-        // setLikes(data.likes);
+          // TODO: Replace with actual Lambda URL once created
+          // const response = await fetch(`${process.env.NEXT_PUBLIC_LAMBDA_URL}?slug=${slug}`);
+          // const data = await response.json();
+          // setLikes(data.likes);
 
         // Mock data for now
         await new Promise(resolve => setTimeout(resolve, 300));
@@ -55,9 +55,9 @@ export default function LikeButton({ slug }: LikeButtonProps) {
 
       // Mock increment for now
       await new Promise(resolve => setTimeout(resolve, 300));
-      setLikes(prev => prev + 1);
-      setHasLiked(true);
-      localStorage.setItem(`liked-${slug}`, 'true');
+        setLikes(prev => prev + 1);
+        setHasLiked(true);
+        localStorage.setItem(`liked-${slug}`, 'true');
     } catch (error) {
       console.error('Error liking post:', error);
     } finally {
@@ -66,7 +66,7 @@ export default function LikeButton({ slug }: LikeButtonProps) {
   };
 
   return (
-    <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3">
       <button
         onClick={handleLike}
         disabled={loading || hasLiked}
